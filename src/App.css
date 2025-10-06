@@ -1,6 +1,6 @@
 .container{
   min-height: 100vh;
-  background: linear-gradient(135deg, #3cff00 0%, #eeff00 100%);
+  background: linear-gradient(135deg, #3cff00cf 0%, #eeff00 100%);
   padding: 32px;
 }
 .content{
@@ -48,4 +48,22 @@ header p{
 .busca-container input:focus{
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px #3b83f652;
+}
+.busca-container button{
+  padding: 12px 24px;
+  background: #3b83f6b9;
+  color: #fff;
+  border: nane;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.busca-container button:hover{
+  background: #01a97cc3;
+}
+.busca-container button:disabled{
+  cursor: not-allowed;
+  background: #9ca3af;
 }
