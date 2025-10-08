@@ -1,6 +1,6 @@
 .container{
   min-height: 100vh;
-  background: linear-gradient(135deg, #3cff00cf 0%, #eeff00 100%);
+  background: linear-gradient(135deg, #018449fb 0%, #009ea3 100%);
   padding: 32px;
 }
 .content{
@@ -23,7 +23,7 @@ header h1{
 }
 header p{
   font-size: 1.1em;
-  color: #00a2ff;
+  color: #00456d;
 }
 .busca-box{
   background: #fff;
@@ -66,4 +66,43 @@ header p{
 .busca-container button:disabled{
   cursor: not-allowed;
   background: #9ca3af;
+}
+#card-resultado{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px #00000098;
+  padding: 32px;
+}
+#ciade-info{
+  text-align: center;
+  margin-bottom: 24px;
+}
+#cidade-nome{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+#cidade-desc{
+  color: #4b5563;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.1em;
+}
+#temperatura-box{
+text-align: center;
+margin-bottom: 32px;
+}
+#temp-valor{
+  font-size: 3.7em;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+#temp-sens{
+  color: #4b5563;
 }
