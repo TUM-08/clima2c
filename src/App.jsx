@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { CloudSun, MapPinned } from 'lucide-react';
+import { CloudSun, MapPinned, Thermometer } from 'lucide-react';
 
 function App() {
   const [cidade, setCidade] = useState('');
@@ -87,7 +87,7 @@ setClima(dados);
                 {/* Temperatura */}
                 <div className="detal-item">
                    <div className="detal-item">
-                  ICONE
+                  <Thermometer />
                 </div>
                 <p className="detal-texto">
                   Min/Max
