@@ -81,8 +81,24 @@ setClima(dados);
                 <div id="temp-sens">
                   Sensação Térmica: 21°C
                 </div>
-              </div> {/* fecha #card-resultado */}
-            </div>
+              </div>
+
+              <div id="detales-box">
+                {/* Temperatura */}
+                <div className="detal-item">
+                   <div className="detal-item">
+                  ICONE
+                </div>
+                <p className="detal-texto">
+                  Min/Max
+                </p>
+                <p className="detal-valoe">
+                  23°C/27°C
+                </p>
+                </div>
+              </div>
+
+            </div>{/* fecha #card-resultado */}
 
           
         </div>
