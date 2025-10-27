@@ -117,3 +117,34 @@ margin-bottom: 32px;
   border-radius: 8px;
   text-align: center;
 }
+.detal-item{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.detal-icone{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.detal-texto{
+  font-size: 0.8em;
+  color: #444;
+  margin-bottom: 4px;
+}
+.detal-valor{
+  font-weight: bold;
+  color: #222;
+}
+/* RESPONSIVO */
+  @media (max-width: 768px){
+  #detalhes-box{
+    grid-template-columns: 1fr;
+  }
+  #temp-valor{
+  font-size: 3em;
+}
+  header g1{
+  font-size: 1.8em;
+  }
+}

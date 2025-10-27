@@ -21,7 +21,7 @@ function App() {
 
 // Try Executa os comandos
     try{
-const API_KEY = "";
+const API_KEY = "5087";
 const url = "";
 const resposta = await frtch(url)
 
