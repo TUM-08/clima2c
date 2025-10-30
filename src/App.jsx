@@ -21,12 +21,12 @@ function App() {
 
 // Try Executa os comandos
     try{
-const API_KEY = "5087";
-const url = "";
-const resposta = await frtch(url)
+      const API_KEY = "50878f4678cd0841144b44b2fca0ccc0";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API_KEY}&units=metric&lang=pt_br`;
+      const resposta = await frtch(url)
 
 if(!resposta.ok){
-  throw new Error ("Cidade não encontrada");
+  throw new Error ('Cidade não encontrada');
 }
 
 const dados = await resposta.json();
@@ -37,95 +37,109 @@ setClima(dados);
       setErro(erro.mensage);
       setClima(null);
     }finally{
-      setCarregando(false)
+      setCarregando(false);
     }
   }
+  const handleKeyPress = (e) =>{
+    if (e.Key === "Enter"){
+      buscarClima();
+    }
+  };
+
   return (
     <>
       <div className="container">
         <div className="content">
           <header>
             <h1>
-              <CloudSun color="blue" size={48} />
+              <CloudSun color="white" size={48} />
               Consulta de Clima
             </h1>
-            <p>Exemplo de consumo de API com react </p>
+            <p>Exemplo de consumo de API com React</p>
           </header>
-
-          {/* caixa de busca */}
+          
+          {/* Caixa de Busca */}
           <div className="busca-box">
             <div className="busca-container">
-              <input
-               type="text"
-               placeholder="Digite o nome da cidade.."
-               />
-               <button>Buscar</button>
+              <input 
+                type="text"
+                placeholder="Digite o nome da cidade.."
+                value={cidade}
+                onChange={(e) => setCidade(e.target.value)}
+                onKeyDown={handleKeyPress}
+              />
+              <button
+                onClick={buscarClima}
+                disabled={carregando}
+              >
+                {carregando ? "Buscando..." : "Buscar"}
+              </button>
             </div>
-            </div>
+          </div>
 
-            {/* resultado do Clima */}
-            <div id="card-resultado">
-              <div id="cidade-info">
-                <div id="cidade-nome">
-                <MapPinned style={{color: '#000000ff'}} size={48}/>
+          {/* Resultado do Clima */}
+          <div id="card-resultado">
+            <div id="cidade-info">
+              <div id="cidade-nome">
+                <MapPinned style={{color: '#550808ff'}} size={48} />
                 Campinas, BR
-                </div>
-                <p id="cidade-desc">
-                  Nublado
-                </p>
-              </div> {/* fecha #cidade-desc */}
-
-              {/* temperatura parcial */}
-              <div id="temperatura-box">
-                <div id="temp-valor">21°C</div>
-                <div id="temp-sens">
-                  Sensação Térmica: 21°C
-                </div>
               </div>
+              <p id="cidade-desc">
+                Nublado
+              </p>
+            </div> {/* Fecha #cidade-desc*/}
 
-              <div id="detales-box">
-                
-                <div className="detal-item">{/* Inicio Temperatura */}
-                   <div className="detal-item">
+            {/* Temperatura principal */}
+            <div id="temperatura-box">
+              <div id="temp-valor">21°C</div>
+              <div id="temp-sens">
+                Sensação Térmica: 21°C
+              </div>
+            </div>
+
+            <div id="detalhes-box">
+              
+              <div className="detal-item">{/* Inicio Temperatura */}
+                <div className="detal-icone">
                   <Thermometer />
                 </div>
                 <p className="detal-texto">
                   Min/Max
                 </p>
-                <p className="detal-valoe">
-                  23°C/27°C
+                <p className="detal-valor">
+                  23ºC/27ºC
                 </p>
-                </div>{/* Fim Temperatura */}
+              </div>{/* Fim Temperatura */}
 
-                 <div className="detal-item">{/* Inicio Umidade */}
-                   <div className="detal-item">
+              <div className="detal-item">{/* Inicio Umidade */}
+                <div className="detal-icone">
                   <Droplet />
                 </div>
                 <p className="detal-texto">
                   Umidade
                 </p>
-                <p className="detal-valoe">
+                <p className="detal-valor">
                   12%
                 </p>
-                </div>{/* Fim Umidade */}
+              </div>{/* Fim Umidade */}
 
-                 <div className="detal-item">{/* Inicio Vento */}
-                   <div className="detal-item">
+              <div className="detal-item">{/* Inicio Vento */}
+                <div className="detal-icone">
                   <Wind />
                 </div>
                 <p className="detal-texto">
                   Vento
                 </p>
-                <p className="detal-valoe">
+                <p className="detal-valor">
                   12 km/h
                 </p>
-                </div>{/* Fim Vento */}
+              </div>{/* Fim Vento */}
 
-              </div>
+            </div>
 
-            </div>{/* fecha #card-resultado */}
 
-          
+          </div> {/* Fecha #card-resultado */}
+
         </div>
       </div>
     </>

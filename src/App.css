@@ -106,21 +106,16 @@ margin-bottom: 32px;
 #temp-sens{
   color: #4b5563;
 }
-#detales-box{
+#detalhes-box{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 16px;
 }
 .detal-item{
-  background: #b1b0b0;
+  background: #ccc;
   padding: 16px;
   border-radius: 8px;
   text-align: center;
-}
-.detal-item{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 8px;
 }
 .detal-icone{
   display: flex;
@@ -136,15 +131,16 @@ margin-bottom: 32px;
   font-weight: bold;
   color: #222;
 }
+
 /* RESPONSIVO */
-  @media (max-width: 768px){
+@media (max-width: 768px){
   #detalhes-box{
     grid-template-columns: 1fr;
   }
   #temp-valor{
-  font-size: 3em;
-}
-  header g1{
-  font-size: 1.8em;
+    font-size: 3em;
+  }
+  header h1{
+    font-size: 1.8em;
   }
 }
