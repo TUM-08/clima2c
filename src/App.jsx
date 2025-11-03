@@ -12,7 +12,7 @@ function App() {
   const buscarClima = async () => {
     //validação do campo vazio da cidade
     if (!cidade.trim()){
-      setErro('Por favor, digite uma cidade');
+      setErro('❗ Por favor, digite uma cidade');
       return;
     }
 
@@ -23,10 +23,10 @@ function App() {
     try{
       const API_KEY = "50878f4678cd0841144b44b2fca0ccc0";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API_KEY}&units=metric&lang=pt_br`;
-      const resposta = await frtch(url)
+      const resposta = await fetch(url)
 
 if(!resposta.ok){
-  throw new Error ('Cidade não encontrada');
+  throw new Error('❗Cidade não encontrada');
 }
 
 const dados = await resposta.json();
@@ -34,7 +34,7 @@ setClima(dados);
 
 
     }catch (error){
-      setErro(erro.mensage);
+      setErro(error.message);
       setClima(null);
     }finally{
       setCarregando(false);
@@ -75,17 +75,20 @@ setClima(dados);
                 {carregando ? "Buscando..." : "Buscar"}
               </button>
             </div>
+            {/* mensagem de erro */}
+            {erro && <div className='erro-msg'>{erro}</div>}
           </div>
 
+          {clima && ( <>
           {/* Resultado do Clima */}
           <div id="card-resultado">
             <div id="cidade-info">
               <div id="cidade-nome">
                 <MapPinned style={{color: '#550808ff'}} size={48} />
-                Campinas, BR
+                {clima.nome}, {clima.sys.country}
               </div>
               <p id="cidade-desc">
-                Nublado
+                {clima.weather[0].description}
               </p>
             </div> {/* Fecha #cidade-desc*/}
 
@@ -139,9 +142,11 @@ setClima(dados);
 
 
           </div> {/* Fecha #card-resultado */}
+            </>)}
 
         </div>
       </div>
+
     </>
   )
 }
